@@ -47,6 +47,13 @@ public class Application {
         headerList.forEach((key, value) -> System.out.println(key + " : " + value));
         System.out.println("\n");
 
+        if(util.checkIfHTMLContent(response)){
+            String title = responseHandler.getTitle(responseString);
+            if(title.isEmpty())
+                System.out.println("No title present");
+            else
+                System.out.println("Title = " + title);
+        }
 
     }
 }

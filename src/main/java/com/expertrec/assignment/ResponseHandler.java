@@ -5,6 +5,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -52,6 +54,11 @@ public class ResponseHandler {
             headerList.put(header.getName(), header.getValue());
         }
         return headerList;
+    }
+
+    String getTitle(StringBuilder  tmp) {
+        Document doc = Jsoup.parse(String.valueOf(tmp));
+        return doc.title();
     }
 
 }
