@@ -2,7 +2,6 @@ package com.expertrec.assignment;
 
 import org.apache.http.HttpResponse;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
