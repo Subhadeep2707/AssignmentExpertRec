@@ -33,11 +33,11 @@ public class ResponseHandler {
             HttpGet request = new HttpGet(getUrl());
             res =  client.execute(request);
         }catch(UnknownHostException e){
-            System.out.println("Cannot conenct to host because of connectivity issues");
+            System.out.println("Cannot connect to host.");
         }catch(IOException e){
-            System.out.println("I/O error");
+            System.out.println("I/O error.");
         }catch(Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         return res;
     }

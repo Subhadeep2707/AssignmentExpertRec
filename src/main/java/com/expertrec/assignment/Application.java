@@ -29,7 +29,10 @@ public class Application {
         }
 
         HttpResponse response = responseHandler.callURL();
-        //System.out.print(response);
+        //System.out.println(response);
+        if(response == null){
+            System.exit(1);
+        }
 
         int statusCode = responseHandler.getStatusCode(response);
         System.out.println("Status code = " + statusCode);

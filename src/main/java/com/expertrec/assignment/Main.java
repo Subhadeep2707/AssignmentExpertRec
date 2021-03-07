@@ -33,15 +33,15 @@ public class Main {
                     formatter.printHelp("CommandLineParameters", options);
                 }
                 else {
-                    System.out.println("Url and File Parameters missing. Enter -h as argument for help.");
+                    System.out.println("Url and File Parameters missing. Enter -h or --help as argument for help.");
                 }
                 System.exit(1);
             }
             else if (urlArg == null) {
-                System.out.println("Url parameter missing. Enter -h as argument for help.");
+                System.out.println("Url parameter missing. Enter -h or --help as argument for help.");
                 System.exit(1);
             } else if (fileArg == null){
-                System.out.println("File parameter missing. Enter -h as argument for help.");
+                System.out.println("File parameter missing. Enter -h or --help as argument for help.");
                 System.exit(1);
             }
 
