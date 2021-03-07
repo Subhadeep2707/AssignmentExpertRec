@@ -9,8 +9,8 @@ To compile and run the project follow these simple steps.
 
 # Prerequisites
 
-Java 1.8+
-Maven 3.6.0+
+-Java 1.8+
+-Maven 3.6.0+
 
 # Installation
 
