@@ -56,6 +56,9 @@ public class Application {
             else
                 System.out.println("Title = " + title);
         }
+        else{
+            System.out.println("Title not extracted as the content-type is not html.");
+        }
 
         if(statusCode == 200)
             return 0;
