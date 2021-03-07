@@ -15,9 +15,15 @@ Maven 3.6.0+
 # Installation
 
 1. Clone the repository
+```
 git clone git@github.com:Subhadeep2707/AssignmentExpertRec.git
 cd AssignmentExpertRec
+```
 2. Build the project using maven
+```
 mvn clean install
+```
 3. Run the project
+```
 java -jar target\TakeHomeTest-1.0-jar-with-dependencies.jar customers.txt
+```
