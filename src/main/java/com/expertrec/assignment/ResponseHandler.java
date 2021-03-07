@@ -1,5 +1,6 @@
 package com.expertrec.assignment;
 
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -9,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 public class ResponseHandler {
     private String url;
@@ -40,6 +42,16 @@ public class ResponseHandler {
             responseString.append("\n").append(decoded);
         }
         return responseString;
+    }
+
+    HashMap<String, String> getHeaders(HttpResponse response) {
+        Header[] headers = response.getAllHeaders();
+        HashMap<String, String> headerList = new HashMap<>();
+        for (Header header : headers) {
+            //System.out.println("Key : " + header.getName() + " ,Value : " + header.getValue());
+            headerList.put(header.getName(), header.getValue());
+        }
+        return headerList;
     }
 
 

@@ -3,6 +3,7 @@ package com.expertrec.assignment;
 import org.apache.http.HttpResponse;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Application {
 
@@ -36,7 +37,11 @@ public class Application {
         StringBuilder responseString = responseHandler.getResponseBody(response);
         //System.out.println(responseString);
 
+        System.out.println("Headers: \n");
 
+        HashMap<String, String> headerList = responseHandler.getHeaders(response);
+        headerList.forEach((key, value) -> System.out.println(key + " : " + value));
+        System.out.println("\n");
 
 
     }
