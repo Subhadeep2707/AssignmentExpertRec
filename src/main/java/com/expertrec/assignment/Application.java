@@ -33,5 +33,11 @@ public class Application {
         System.out.println("Status code = " + statusCode);
         System.out.println("\n");
 
+        StringBuilder responseString = responseHandler.getResponseBody(response);
+        //System.out.println(responseString);
+
+
+
+
     }
 }

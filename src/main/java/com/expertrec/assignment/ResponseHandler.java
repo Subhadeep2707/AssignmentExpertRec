@@ -5,7 +5,10 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class ResponseHandler {
     private String url;
@@ -27,5 +30,17 @@ public class ResponseHandler {
     int getStatusCode(HttpResponse response) {
         return response.getStatusLine().getStatusCode();
     }
+
+    StringBuilder getResponseBody(HttpResponse response) throws IOException {
+        String line = null;
+        StringBuilder  responseString = new StringBuilder ();
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        while ((line = in.readLine()) != null) {
+            String decoded = new String(line.getBytes(), StandardCharsets.UTF_8);
+            responseString.append("\n").append(decoded);
+        }
+        return responseString;
+    }
+
 
 }
