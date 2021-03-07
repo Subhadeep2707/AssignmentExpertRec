@@ -49,7 +49,8 @@ public class Main {
             e.printStackTrace();
         } finally {
             application = new Application(urlArg, fileArg);
-            application.handler();
+            int code = application.handler();
+            System.exit(code);
         }
     }
 }

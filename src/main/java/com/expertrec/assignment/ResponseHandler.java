@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.rmi.UnknownHostException;
 import java.util.HashMap;
 
 public class ResponseHandler {
@@ -25,10 +26,20 @@ public class ResponseHandler {
         return url;
     }
 
-    HttpResponse callURL() throws IOException {
-        HttpClient client = HttpClientBuilder.create().build();
-        HttpGet request = new HttpGet(getUrl());
-        return client.execute(request);
+    HttpResponse callURL() {
+        HttpResponse res = null;
+        try{
+            HttpClient client = HttpClientBuilder.create().build();
+            HttpGet request = new HttpGet(getUrl());
+            res =  client.execute(request);
+        }catch(UnknownHostException e){
+            System.out.println("Cannot conenct to host because of connectivity issues");
+        }catch(IOException e){
+            System.out.println("I/O error");
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return res;
     }
 
     int getStatusCode(HttpResponse response) {

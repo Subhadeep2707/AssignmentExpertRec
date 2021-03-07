@@ -19,7 +19,7 @@ public class Application {
         util = new Utility();
     }
 
-    void handler() throws IOException {
+    int handler() throws IOException {
         if(util.validateUrl(url)) {
             responseHandler = new ResponseHandler(url);
         }
@@ -54,5 +54,9 @@ public class Application {
                 System.out.println("Title = " + title);
         }
 
+        if(statusCode == 200)
+            return 0;
+        else
+            return statusCode;
     }
 }
