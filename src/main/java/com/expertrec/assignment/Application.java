@@ -2,6 +2,7 @@ package com.expertrec.assignment;
 
 import org.apache.http.HttpResponse;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -11,6 +12,7 @@ public class Application {
     private String url;
     Utility util;
     ResponseHandler responseHandler;
+    FileHandler fileHandler;
 
     Application(String url, String file){
         this.url = url;
@@ -35,6 +37,8 @@ public class Application {
         System.out.println("\n");
 
         StringBuilder responseString = responseHandler.getResponseBody(response);
+        fileHandler = new FileHandler(file);
+        fileHandler.writeToFile(responseString);
         //System.out.println(responseString);
 
         System.out.println("Headers: \n");
