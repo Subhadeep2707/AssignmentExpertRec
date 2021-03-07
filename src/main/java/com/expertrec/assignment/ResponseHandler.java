@@ -23,4 +23,9 @@ public class ResponseHandler {
         HttpGet request = new HttpGet(getUrl());
         return client.execute(request);
     }
+
+    int getStatusCode(HttpResponse response) {
+        return response.getStatusLine().getStatusCode();
+    }
+
 }

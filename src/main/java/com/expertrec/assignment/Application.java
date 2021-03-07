@@ -27,7 +27,11 @@ public class Application {
         }
 
         HttpResponse response = responseHandler.callURL();
-        System.out.print(response);
+        //System.out.print(response);
+
+        int statusCode = responseHandler.getStatusCode(response);
+        System.out.println("Status code = " + statusCode);
+        System.out.println("\n");
 
     }
 }
