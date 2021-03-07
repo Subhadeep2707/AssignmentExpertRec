@@ -1,5 +1,9 @@
 package com.expertrec.assignment;
 
+import org.apache.http.HttpResponse;
+
+import java.io.IOException;
+
 public class Application {
 
     private String file;
@@ -13,7 +17,7 @@ public class Application {
         util = new Utility();
     }
 
-    void handler(){
+    void handler() throws IOException {
         if(util.validateUrl(url)) {
             responseHandler = new ResponseHandler(url);
         }
@@ -21,5 +25,9 @@ public class Application {
             System.out.println("The url entered in not valid!");
             System.exit(1);
         }
+
+        HttpResponse response = responseHandler.callURL();
+        System.out.print(response);
+
     }
 }
