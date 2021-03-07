@@ -20,7 +20,7 @@ public class FileHandler {
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
-                System.out.println("File already exists.");
+                System.out.println("File " + myObj.getName() + " already exists.");
             }
             try (FileWriter myWriter = new FileWriter(myObj)){
                 myWriter.write(String.valueOf(responseString));

@@ -3,6 +3,8 @@ package com.expertrec.assignment;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.CookieSpecs;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.jsoup.Jsoup;
@@ -29,7 +31,9 @@ public class ResponseHandler {
     HttpResponse callURL() {
         HttpResponse res = null;
         try{
-            HttpClient client = HttpClientBuilder.create().build();
+            HttpClient client = HttpClientBuilder.create()
+                    .setDefaultRequestConfig(RequestConfig.custom()
+                            .setCookieSpec(CookieSpecs.STANDARD).build()).build();
             HttpGet request = new HttpGet(getUrl());
             res =  client.execute(request);
         }catch(UnknownHostException e){
