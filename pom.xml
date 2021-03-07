@@ -57,7 +57,7 @@
                     <archive>
                         <manifest>
                             <mainClass>
-                                com.demo.test.Main
+                                com.expertrec.assignment.Main
                             </mainClass>
                         </manifest>
                     </archive>
